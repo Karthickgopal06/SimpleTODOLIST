@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Karthick">
+    <meta name="description" content="todolist creating javascript">
+    <meta name="keywords" content="html,css,javscript">
+    <title>TodoList</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <header>
+        <h1>To Do List</h1>
+    </header>
+
+    <main>
+        <form>
+            <input type="text" id="mytext" placeholder="Enter the Text Here">
+            <span onclick="mylist()" id="addBtn">Add </span>
+        </form>
+
+        <ul id="myul">
+            
+        </ul>
+    </main>
+
+    <script>
+        var list = document.getElementsByTagName('li');
+        for(var i= 0;i<list.length;i++){
+        var span = document.createElement("span");
+        span.className ="close";
+        var close = document.createTextNode("X");
+        span.appendChild(close);
+        list[i].appendChild(span);
+        }
+
+        var close = document.getElementsByClassName("close");
+        for(i=0;i<close.length;i++){
+            close[i].onclick=function(){
+                var d = this.parentElement;
+                d.style.display = 'none';
+            }
+        }
+
+
+        function mylist(){
+            var li = document.createElement("li");
+            var mytext = document.getElementById("mytext").value;
+            var t = document.createTextNode(mytext);
+            li.appendChild(t);
+            if(mytext==''){
+                alert("Input Field Is Empty");
+            }
+            else{
+                document.getElementById("myul").appendChild(li);
+            }
+            var list = document.getElementsByTagName('li');
+            for(var i= 0;i<list.length;i++){
+            var span = document.createElement("span");
+            span.className ="close";
+            var close = document.createTextNode("X");
+            span.appendChild(close);
+            list[i].appendChild(span);
+            }
+
+            var close = document.getElementsByClassName("close");
+            for(i=0;i<close.length;i++){
+            close[i].onclick=function(){
+            var d = this.parentElement;
+            d.style.display = 'none';
+            }
+        }
+    }
+    </script>
+</body>
+</html>
